@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes | Sapthagiri NPS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+
+    .subject {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .subject h3 { margin: 0 0 10px; font-size: 22px; }
+
+    .note-btn {
+      background: #fff;
+      color: #2575fc;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .note-btn:hover { background: #f0f0f0; transform: translateY(-2px); }
+
+    .modules { display: none; margin-top: 15px; padding-left: 10px; }
+
+    .module-link {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      margin: 5px 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .module-link:hover { background: rgba(255,255,255,0.3); }
+
+    .no-notes {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="brand">📘 Sapthagiri NPS University - BCA Notes Portal</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="notes.html" class="active">Notes</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>BCA Notes Portal</h1>
+    <p>Click on any subject below to view its modules.</p>
+  </section>
+
+  <div class="container">
+
+    <!-- 1 Mathematics -->
+    <div class="subject">
+      <h3>Mathematics</h3>
+      <button class="note-btn" onclick="toggleModules('math')">📘 View Notes</button>
+      <div id="math" class="modules">
+        <a href="#" class="module-link">Module 1</a>
+        <a href="#" class="module-link">Module 2</a>
+        <a href="#" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 2 Digital Computer Fundamentals -->
+    <div class="subject">
+      <h3>Digital Computer Fundamentals</h3>
+      <button class="note-btn" onclick="toggleModules('dcf')">📘 View Notes</button>
+      <div id="dcf" class="modules">
+        <a href="https://docs.google.com/document/d/15KHxbbAuDigttnjTm3JbiVxMruqTxZbs/edit?usp=drivesdk" class="module-link">Module 1</a>
+        <a href="https://docs.google.com/document/d/1CWqZYOC9FiuO7somRswI114dBkD_Y9Fg/edit?usp=drivesdk" class="module-link">Module 2</a>
+        <a href="https://docs.google.com/document/d/1th00SIZOnIdhOoNbIECmLzr99DbvMKHr/edit?usp=drivesdk" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 3 Web Design and Development -->
+    <div class="subject">
+      <h3>Web Design and Development</h3>
+      <button class="note-btn" onclick="toggleModules('wdd')">📘 View Notes</button>
+      <div id="wdd" class="modules">
+        <a href="https://docs.google.com/presentation/d/1cYJuofurMhxarrWnC3fU7XeJSjsQPQfY/edit?usp=drivesdk" class="module-link">Module 1</a>
+        <a href="https://docs.google.com/presentation/d/1-Zc7wUR3YTTYf8nbkWPImpCSWuwIKWAs/edit?usp=drivesdk" class="module-link">Module 2</a>
+        <a href="https://docs.google.com/presentation/d/1dS_y4eTI6ihOIJZiKfpdBOcdp-wbC5mq/edit?usp=drivesdk" class="module-link">Module 3</a>
+        <a href="https://docs.google.com/presentation/d/1Dr--9HHpwXm7JCv0z4U4dPEUZSlv0Avn/edit?usp=drivesdk" class="module-link">Module 4</a>
+        <a href="https://docs.google.com/presentation/d/1Kp_C0uGuOFwodU2WCGwvcqJAEI8ZPIcn/edit?usp=drivesdk" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 4 C Programming -->
+    <div class="subject">
+      <h3>C Programming</h3>
+      <button class="note-btn" onclick="toggleModules('cprog')">📘 View Notes</button>
+      <div id="cprog" class="modules">
+        <a href="https://docs.google.com/document/d/1Zb9IEh3OtebARCIiIz_lVCXlrfkW-77F/edit?usp=drivesdk" class="module-link">Module 1</a>
+        <a href="https://docs.google.com/document/d/1ptppu_5QOFMRuO1z2FkVNZAOWQi_xumu/edit?usp=drivesdk" class="module-link">Module 2</a>
+        <a href="https://drive.google.com/file/d/17cbqnU9dtOEwfOX6GXmKCrUtZ56y4CWx/view?usp=drivesdk" class="module-link">Module 3</a>
+        <a href="https://drive.google.com/file/d/1fkfYgLqSG1O7plUX4OyFAVwv0zTC-ox5/view?usp=drivesdk" class="module-link">Module 4</a>
+        <a href="https://drive.google.com/file/d/1eUjPiWyPMxiUaxQhvsQjyETswzKF0x2m/view?usp=drivesdk" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 5 Kali Kannada -->
+    <div class="subject">
+      <h3>Kali Kannada</h3>
+      <button class="note-btn" onclick="toggleModules('kk')">📘 View Notes</button>
+      <div id="kk" class="modules">
+        <a href="https://drive.google.com/file/d/10itK0FPVcDqsLvauB_rqBIKH9ZOCInqZ/view?usp=drivesdk" class="module-link">Module 1</a>
+        <a href="#" class="module-link">Module 2</a>
+        <a href="#" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 6 Kannada Samskruti -->
+    <div class="subject">
+      <h3>Kannada Samskruti</h3>
+      <button class="note-btn" onclick="toggleModules('ks')">📘 View Notes</button>
+      <div id="ks" class="modules">
+        <a href="#" class="module-link">Module 1</a>
+        <a href="#" class="module-link">Module 2</a>
+        <a href="#" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 7 Communicative English -->
+    <div class="subject">
+      <h3>Communicative English</h3>
+      <button class="note-btn" onclick="toggleModules('ce')">📘 View Notes</button>
+      <div id="ce" class="modules">
+        <a href="https://drive.google.com/file/d/1u0la8rSG-OZmZV5YmwL789zlip2KIfUO/view?usp=drivesdk" class="module-link">Module 1</a>
+        <a href="#" class="module-link">Module 2</a>
+        <a href="#" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+    <!-- 8 Introduction to Soft Skills -->
+    <div class="subject">
+      <h3>Introduction to Soft Skills</h3>
+      <button class="note-btn" onclick="toggleModules('iss')">📘 View Notes</button>
+      <div id="iss" class="modules">
+        <a href="#" class="module-link">Module 1</a>
+        <a href="#" class="module-link">Module 2</a>
+        <a href="#" class="module-link">Module 3</a>
+        <a href="#" class="module-link">Module 4</a>
+        <a href="#" class="module-link">Module 5</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    © 2025 Sapthagiri NPS University | Department of BCA | Designed by Akarsh and alok samarth
+  </footer>
+
+  <script>
+    function toggleModules(id) {
+      const section = document.getElementById(id);
+      section.style.display = (section.style.display === "block") ? "none" : "block";
+
+      if (section.style.display === "block") {
+        const links = section.querySelectorAll(".module-link");
+        let validLinks = 0;
+
+        links.forEach(link => {
+          const href = link.getAttribute("href");
+          const invalid = (!href || href === "#" || href.toLowerCase().includes("uploading soon"));
+          link.style.display = invalid ? "none" : "inline-block";
+          if (!invalid) validLinks++;
+        });
+
+        // Show or remove "notes will be uploaded" message
+        let msg = section.querySelector(".no-notes");
+        if (validLinks === 0) {
+          if (!msg) {
+            msg = document.createElement("p");
+            msg.textContent = "📚 Notes will be uploaded soon!";
+            msg.className = "no-notes";
+            section.appendChild(msg);
+          }
+        } else if (msg) {
+          msg.remove();
+        }
+      }
+    }
+  </script>
+</body>
+</html>

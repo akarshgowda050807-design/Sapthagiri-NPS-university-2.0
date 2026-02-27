@@ -6,6 +6,7 @@
   <title>Notes | Sapthagiri NPS</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Local styles kept minimal; main styles in style.css */
     .container { max-width: 900px; margin: 40px auto; padding: 20px; }
 
     .subject {
@@ -15,24 +16,40 @@
       padding: 20px;
       margin: 15px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
-    .subject h3 { margin: 0 0 10px; font-size: 22px; }
+    .subject h3 { margin: 0 0 15px; font-size: 22px; }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
 
     .note-btn {
       background: #fff;
       color: #2575fc;
       border: none;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.22s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .note-btn:hover { background: #f0f0f0; transform: translateY(-2px); }
+    .note-btn:hover { background: #f0f0f0; transform: translateY(-3px); }
 
-    .modules { display: none; margin-top: 15px; padding-left: 10px; }
+    .modules, .qbank {
+      display: none;
+      margin-top: 15px;
+      padding-left: 10px;
+      text-align: center;
+    }
 
     .module-link {
       display: inline-block;
@@ -43,19 +60,24 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: all 0.18s ease;
     }
 
-    .module-link:hover { background: rgba(255,255,255,0.3); }
+    .module-link:hover { background: rgba(255,255,255,0.28); }
 
     .no-notes {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
       color: #fff;
       padding: 10px;
       border-radius: 8px;
       text-align: center;
-      font-weight: 500;
+      font-weight: 600;
       margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .btn-group { flex-direction: column; align-items: center; }
+      .note-btn { width: 80%; text-align: center; }
     }
   </style>
 </head>
@@ -73,149 +95,188 @@
 
   <section class="hero">
     <h1>BCA Notes Portal</h1>
-    <p>Click on any subject below to view its modules.</p>
+    <p>Click on any subject below to view its modules or question bank.</p>
   </section>
 
   <div class="container">
 
-    <!-- 1 Mathematics -->
+    <!-- 1 Mathematics (no uploads yet) -->
     <div class="subject">
       <h3>Mathematics</h3>
-      <button class="note-btn" onclick="toggleModules('math')">📘 View Notes</button>
-      <div id="math" class="modules">
-        <a href="#" class="module-link">Module 1</a>
-        <a href="#" class="module-link">Module 2</a>
-        <a href="#" class="module-link">Module 3</a>
-        <a href="#" class="module-link">Module 4</a>
-        <a href="#" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('math', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('math', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="math-modules" class="modules"><!-- empty on purpose --></div>
+      <div id="math-qbank" class="qbank"><!-- empty on purpose --></div>
     </div>
 
     <!-- 2 Digital Computer Fundamentals -->
     <div class="subject">
       <h3>Digital Computer Fundamentals</h3>
-      <button class="note-btn" onclick="toggleModules('dcf')">📘 View Notes</button>
-      <div id="dcf" class="modules">
-        <a href="https://docs.google.com/document/d/15KHxbbAuDigttnjTm3JbiVxMruqTxZbs/edit?usp=drivesdk" class="module-link">Module 1</a>
-        <a href="https://docs.google.com/document/d/1CWqZYOC9FiuO7somRswI114dBkD_Y9Fg/edit?usp=drivesdk" class="module-link">Module 2</a>
-        <a href="https://docs.google.com/document/d/1th00SIZOnIdhOoNbIECmLzr99DbvMKHr/edit?usp=drivesdk" class="module-link">Module 3</a>
-        <a href="#" class="module-link">Module 4</a>
-        <a href="#" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('dcf', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('dcf', 'qbank')">📖 View Question Bank</button>
+      </div>
+      <div id="dcf-modules" class="modules">
+        <a href="https://docs.google.com/document/d/15KHxbbAuDigttnjTm3JbiVxMruqTxZbs/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 1</a>
+        <a href="https://docs.google.com/document/d/1CWqZYOC9FiuO7somRswI114dBkD_Y9Fg/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 2</a>
+        <a href="https://docs.google.com/document/d/1th00SIZOnIdhOoNbIECmLzr99DbvMKHr/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 3</a>
+      </div>
+      <div id="dcf-qbank" class="qbank">
+        <!-- Example question bank link (replace with real link or leave empty) -->
+        <!-- <a href="https://drive.google.com/your-qbank-link" class="module-link" target="_blank" rel="noopener">Question Bank — Previous Papers</a> -->
       </div>
     </div>
 
     <!-- 3 Web Design and Development -->
     <div class="subject">
       <h3>Web Design and Development</h3>
-      <button class="note-btn" onclick="toggleModules('wdd')">📘 View Notes</button>
-      <div id="wdd" class="modules">
-        <a href="https://docs.google.com/presentation/d/1cYJuofurMhxarrWnC3fU7XeJSjsQPQfY/edit?usp=drivesdk" class="module-link">Module 1</a>
-        <a href="https://docs.google.com/presentation/d/1-Zc7wUR3YTTYf8nbkWPImpCSWuwIKWAs/edit?usp=drivesdk" class="module-link">Module 2</a>
-        <a href="https://docs.google.com/presentation/d/1dS_y4eTI6ihOIJZiKfpdBOcdp-wbC5mq/edit?usp=drivesdk" class="module-link">Module 3</a>
-        <a href="https://docs.google.com/presentation/d/1Dr--9HHpwXm7JCv0z4U4dPEUZSlv0Avn/edit?usp=drivesdk" class="module-link">Module 4</a>
-        <a href="https://docs.google.com/presentation/d/1Kp_C0uGuOFwodU2WCGwvcqJAEI8ZPIcn/edit?usp=drivesdk" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('wdd', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('wdd', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="wdd-modules" class="modules">
+        <a href="https://docs.google.com/presentation/d/1cYJuofurMhxarrWnC3fU7XeJSjsQPQfY/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 1</a>
+        <a href="https://docs.google.com/presentation/d/1-Zc7wUR3YTTYf8nbkWPImpCSWuwIKWAs/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 2</a>
+        <a href="https://docs.google.com/presentation/d/1dS_y4eTI6ihOIJZiKfpdBOcdp-wbC5mq/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 3</a>
+        <a href="https://docs.google.com/presentation/d/1Dr--9HHpwXm7JCv0z4U4dPEUZSlv0Avn/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 4</a>
+        <a href="https://docs.google.com/presentation/d/1Kp_C0uGuOFwodU2WCGwvcqJAEI8ZPIcn/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 5</a>
+      </div>
+      <div id="wdd-qbank" class="qbank"></div>
     </div>
 
     <!-- 4 C Programming -->
     <div class="subject">
       <h3>C Programming</h3>
-      <button class="note-btn" onclick="toggleModules('cprog')">📘 View Notes</button>
-      <div id="cprog" class="modules">
-        <a href="https://docs.google.com/document/d/1Zb9IEh3OtebARCIiIz_lVCXlrfkW-77F/edit?usp=drivesdk" class="module-link">Module 1</a>
-        <a href="https://docs.google.com/document/d/1ptppu_5QOFMRuO1z2FkVNZAOWQi_xumu/edit?usp=drivesdk" class="module-link">Module 2</a>
-        <a href="https://drive.google.com/file/d/17cbqnU9dtOEwfOX6GXmKCrUtZ56y4CWx/view?usp=drivesdk" class="module-link">Module 3</a>
-        <a href="https://drive.google.com/file/d/1fkfYgLqSG1O7plUX4OyFAVwv0zTC-ox5/view?usp=drivesdk" class="module-link">Module 4</a>
-        <a href="https://drive.google.com/file/d/1eUjPiWyPMxiUaxQhvsQjyETswzKF0x2m/view?usp=drivesdk" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('cprog', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('cprog', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="cprog-modules" class="modules">
+        <a href="https://docs.google.com/document/d/1Zb9IEh3OtebARCIiIz_lVCXlrfkW-77F/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 1</a>
+        <a href="https://docs.google.com/document/d/1ptppu_5QOFMRuO1z2FkVNZAOWQi_xumu/edit?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 2</a>
+        <a href="https://drive.google.com/file/d/17cbqnU9dtOEwfOX6GXmKCrUtZ56y4CWx/view?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 3</a>
+        <a href="https://drive.google.com/file/d/1fkfYgLqSG1O7plUX4OyFAVwv0zTC-ox5/view?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 4</a>
+        <a href="https://drive.google.com/file/d/1eUjPiWyPMxiUaxQhvsQjyETswzKF0x2m/view?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 5</a>
+      </div>
+      <div id="cprog-qbank" class="qbank"></div>
     </div>
 
     <!-- 5 Kali Kannada -->
     <div class="subject">
       <h3>Kali Kannada</h3>
-      <button class="note-btn" onclick="toggleModules('kk')">📘 View Notes</button>
-      <div id="kk" class="modules">
-        <a href="https://drive.google.com/file/d/10itK0FPVcDqsLvauB_rqBIKH9ZOCInqZ/view?usp=drivesdk" class="module-link">All Modules</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('kk', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('kk', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="kk-modules" class="modules">
+        <a href="https://drive.google.com/file/d/10itK0FPVcDqsLvauB_rqBIKH9ZOCInqZ/view?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 1</a>
+      </div>
+      <div id="kk-qbank" class="qbank"></div>
     </div>
 
     <!-- 6 Kannada Samskruti -->
     <div class="subject">
       <h3>Kannada Samskruti</h3>
-      <button class="note-btn" onclick="toggleModules('ks')">📘 View Notes</button>
-      <div id="ks" class="modules">
-        <a href="#" class="module-link">Module 1</a>
-        <a href="#" class="module-link">Module 2</a>
-        <a href="#" class="module-link">Module 3</a>
-        <a href="#" class="module-link">Module 4</a>
-        <a href="#" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('ks', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('ks', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="ks-modules" class="modules"></div>
+      <div id="ks-qbank" class="qbank"></div>
     </div>
 
     <!-- 7 Communicative English -->
     <div class="subject">
       <h3>Communicative English</h3>
-      <button class="note-btn" onclick="toggleModules('ce')">📘 View Notes</button>
-      <div id="ce" class="modules">
-        <a href="https://drive.google.com/file/d/1u0la8rSG-OZmZV5YmwL789zlip2KIfUO/view?usp=drivesdk" class="module-link">Module 1</a>
-        <a href="#" class="module-link">Module 2</a>
-        <a href="#" class="module-link">Module 3</a>
-        <a href="#" class="module-link">Module 4</a>
-        <a href="#" class="module-link">Module 5</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('ce', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('ce', 'qbank')">📖 View Question Bank</button>
       </div>
+      <div id="ce-modules" class="modules">
+        <a href="https://drive.google.com/file/d/1u0la8rSG-OZmZV5YmwL789zlip2KIfUO/view?usp=drivesdk" class="module-link" target="_blank" rel="noopener">Module 1</a>
+      </div>
+      <div id="ce-qbank" class="qbank"></div>
     </div>
 
     <!-- 8 Introduction to Soft Skills -->
     <div class="subject">
       <h3>Introduction to Soft Skills</h3>
-      <button class="note-btn" onclick="toggleModules('iss')">📘 View Notes</button>
-      <div id="iss" class="modules">
-        <a href="https://docs.google.com/presentation/d/1E4hgwivMgm78BOyRK-RvVmWbsexboH4D/edit?usp=drivesdk&ouid=118384921178425380170&rtpof=true&sd=true" class="module-link">Module 1</a>
+      <div class="btn-group">
+        <button class="note-btn" onclick="toggleSection('iss', 'modules')">📘 View Notes</button>
+        <button class="note-btn" onclick="toggleSection('iss', 'qbank')">📖 View Question Bank</button>
+      </div>
+      <div id="iss-modules" class="modules"></div>
+ <a href="https://docs.google.com/presentation/d/1E4hgwivMgm78BOyRK-RvVmWbsexboH4D/edit?usp=drivesdk&ouid=118384921178425380170&rtpof=true&sd=true" class="module-link">Module 1</a>
         <a href="https://docs.google.com/presentation/d/1Hz4j1k9O9Y2_9qX2gGLrWycw5dAvYzBp/edit?usp=drivesdk&ouid=118384921178425380170&rtpof=true&sd=true" class="module-link">Module 2</a>
         <a href="https://docs.google.com/presentation/d/16fBzFPQBctvOxR7MnkTfa2z9NtlLc80V/edit?usp=drivesdk&ouid=118384921178425380170&rtpof=true&sd=true" class="module-link">Module 3</a>
         <a href="https://docs.google.com/presentation/d/1QN3pv2S8g5s5CLhnyjiLXt9OWjHp-n_N/edit?usp=drivesdk&ouid=118384921178425380170&rtpof=true&sd=true" class="module-link">Module 4</a>
-        <a href="#" class="module-link">Module 5</a>
-      </div>
+      <div id="iss-qbank" class="qbank"></div>
     </div>
 
   </div>
 
   <footer class="footer">
-    © 2025 Sapthagiri NPS University | Department of BCA | Designed by Akarsh and alok samarth
+    © 2025 Sapthagiri NPS University | Department of BCA | Designed by Akarsh and Alok Samarth
   </footer>
 
   <script>
-    function toggleModules(id) {
-      const section = document.getElementById(id);
+    // toggles modules or qbank for given subject id (id = 'math', 'dcf', etc.)
+    // If there are no valid links, it shows an automatic "will be uploaded soon" message.
+    function toggleSection(id, type) {
+      const section = document.getElementById(id + "-" + type);
+      if (!section) return;
+
+      // toggle display
       section.style.display = (section.style.display === "block") ? "none" : "block";
 
       if (section.style.display === "block") {
-        const links = section.querySelectorAll(".module-link");
-        let validLinks = 0;
-
-        links.forEach(link => {
+        // find module links inside this section
+        const links = Array.from(section.querySelectorAll(".module-link"));
+        // filter out placeholders or empty href
+        const validLinks = links.filter(link => {
           const href = link.getAttribute("href");
-          const invalid = (!href || href === "#" || href.toLowerCase().includes("uploading soon"));
-          link.style.display = invalid ? "none" : "inline-block";
-          if (!invalid) validLinks++;
+          if (!href) return false;
+          const low = href.trim().toLowerCase();
+          if (low === "#" || low === "" || low.includes("uploading soon")) return false;
+          return true;
         });
 
-        // Show or remove "notes will be uploaded" message
+        // remove hidden placeholder links (hide any with href="#")
+        links.forEach(link => {
+          const href = (link.getAttribute("href") || "").trim();
+          if (href === "#" || href === "") {
+            link.style.display = "none";
+          } else {
+            link.style.display = "inline-block";
+          }
+        });
+
+        // check existing message node
         let msg = section.querySelector(".no-notes");
-        if (validLinks === 0) {
+        if (validLinks.length === 0) {
+          // show appropriate message if not already present
           if (!msg) {
             msg = document.createElement("p");
-            msg.textContent = "📚 Notes will be uploaded soon!";
             msg.className = "no-notes";
+            msg.textContent = (type === "modules")
+              ? "📚 Notes will be uploaded soon!"
+              : "📄 Question Bank will be uploaded soon!";
             section.appendChild(msg);
+          } else {
+            // ensure message text matches type
+            msg.textContent = (type === "modules")
+              ? "📚 Notes will be uploaded soon!"
+              : "📄 Question Bank will be uploaded soon!";
           }
-        } else if (msg) {
-          msg.remove();
+        } else {
+          // there are valid links; remove message if present
+          if (msg) msg.remove();
         }
       }
     }
   </script>
 </body>
 </html>
-
 
